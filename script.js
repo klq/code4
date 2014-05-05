@@ -37,8 +37,6 @@ function Game (n) {
     this.feedback.push([place_hits, digit_hits]); 
     };
 
-    this.saveGame = function() {   
-    }
 
     this.validateGuess = function(guess) {
         // length = n_digits and consists of only digits
@@ -60,6 +58,12 @@ function Game (n) {
         });
     }
 
+
+    this.saveGame = function() {  
+        var this.storage = window.localStorage ;
+    }
+
+
 } // end of Game()
 
 function genGame (game) {
@@ -75,15 +79,6 @@ function recordText (w,l) {
     return text;
 
 }
-
-// function detectEnter(id,e) {
-//     $(id).keypress (function(e) {
-//         var code = e.keyCode ? e.keyCode : e.which;
-//         if (code == 13) {
-//            return true;
-//         }
-//     });
-// }
 
 function submitAnswer() {
     //got text from submit
@@ -165,8 +160,17 @@ var best_score = 0;
 var total_score = 0;
 var curr_score = 0;
 
+
+
 $(document).ready(function() { 
-    genGame(currGame);
+    var previousGame = window.localStorage.getItem('GameStateKey');
+    
+    if (previousGame) {
+        load previous game
+    } 
+    else {
+        genGame(currGame);
+    }   
 
     $('#guesstext').keypress (function(e) {
         var code = e.keyCode ? e.keyCode : e.which;
