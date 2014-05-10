@@ -110,11 +110,15 @@ input:focus {
   display: inline-block;
   width: 242px;
   text-align: center;
+  vertical-align: middle;
+
 }
 
 #userinput{
   display: inline-block;
   width: 242px;
   text-align: center;
+  vertical-align: middle;
+  
 
 }
