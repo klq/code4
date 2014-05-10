@@ -64,7 +64,7 @@ function Game (n) {
 
 function genGame (game) {
     game.newGame();
-    $("#sum").append("New Game is ready to play! <br/>");
+    $("#game-info").append("New Game is ready to play! <br/>");
     // console.log(currGame.answer);
 }
 
@@ -96,14 +96,14 @@ function submitAnswer() {
     }
     else {
         if (currGame.n_guesses === 0 ) {
-            $('#sum').html('');
+            $('#game-info').html('');
         }
 
         //submit the guess in array form and get feedback
         var lastfb = currGame.submitGuess(currGame.toArrayGuess(guess));
         //append last feedback
-        $("#sum").append("Guess #" + (currGame.n_guesses) + ": " + guess);
-        $("#sum").append(" ---- " + lastfb[0] + "A" + lastfb[1] + "B <br/>");
+        $("#game-info").append("Guess #" + (currGame.n_guesses) + ": " + guess);
+        $("#game-info").append(" ---- " + lastfb[0] + "A" + lastfb[1] + "B <br/>");
 
         //win?
         if (lastfb[0] === currGame.n_digits) {
@@ -116,7 +116,7 @@ function submitAnswer() {
             total_win += 1;
             
             //TODO: save this game record somewhere
-            $("#sum").append("Congratulations! You win! <br/>");
+            $("#game-info").append("Congratulations! You win! <br/>");
             alert("Congratulations! You win!");
 
             $(".score-container").html(total_score);
@@ -176,7 +176,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#submitbutton').click(submitAnswer);
+    //$('#submitbutton').click(submitAnswer);
 
     $("#guesstext").blur(function() {
         this.focus();
