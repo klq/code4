@@ -177,11 +177,33 @@ $(document).ready(function() {
         }
     });
 
+    $('.btn').click(function() {
+        var current_text = $('#guesstext').val();
+        console.log(current_text);
+        var button_digit = $(this).attr("value");
+
+        if (button_digit == 'r') {
+            submitAnswer();
+        }
+        else if (button_digit == 'd') {
+            current_text = current_text.substring(0, current_text.length - 1);
+            $('#guesstext').val(current_text);
+        }
+        else {
+            current_text += button_digit;
+            $('#guesstext').val(current_text);
+        }
+
+        
+    });
+
     //$('#submitbutton').click(submitAnswer);
 
-    $("#guesstext").blur(function() {
-        this.focus();
-    });
+    // $("#guesstext").blur(function() {
+    //     this.focus();
+    // });
+
+    
 
 });
 

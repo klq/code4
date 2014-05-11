@@ -73,11 +73,11 @@ html, body {
 .record-container:after {
   content: "Record"; }
 
+
+
 .intro {
   text-align: justify;
   margin: 0; }
-
-
  
 input{
   width:4.0em;
@@ -103,21 +103,83 @@ input:focus {
 }
 
 .game-container, #game-info, #userinput {
-  border: 1px solid #FF9933;
+  border: 0px solid #FF9933;
 }
 
 #game-info {
-  display: inline-block;
-  width: 242px;
+  display: block;
   text-align: center;
   vertical-align: middle;
 
 }
 
 #userinput{
-  display: inline-block;
-  width: 242px;
+  display: block;
   text-align: center;
   vertical-align: middle;
   
+}
+
+
+@media screen and (max-width: 520px) {
+  html, body {
+    font-size: 15px; }
+
+  body {
+    margin: 0;
+    padding: 0 0.5em; }
+
+  h1.title {
+    font-size: 27px;
+    margin: 0px 10px; }
+
+  .container, .heading, .title, .scores-container {
+    border: 0px solid #444;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto; }
+
+  .score-container, .best-container, .record-container {
+    margin-top: 0;
+    padding: 8px 6px;
+    font-size: 15px;
+    min-width: 40px; }
+
+  .heading {
+    margin-top: 10px; 
+    margin-bottom: 0 ;
+  }
+  .scores-container {
+    margin: 0px 10px;
+  }
+
+  .game-intro {
+    width: 55%;
+    display: block;
+    box-sizing: border-box;
+    line-height: 1.65; }
+
+  button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    padding: 0;
+    text-align: center;
+    color: #776e65;
+    background-color: #faf8ef;
+    -webkit-appearance: none;
+    border-radius: 3px;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+ 
+  #del, #enter {
+    width: 80px;
+    font-size:15px;
+  }
+
 }
