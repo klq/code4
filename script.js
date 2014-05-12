@@ -64,7 +64,7 @@ function Game (n) {
 
 function genGame (game) {
     game.newGame();
-    $("#game-info").prepend("New Game is ready to play! <br/>");
+    $("#game-info").append("New Game is ready to play! <br/>");
     // console.log(currGame.answer);
 }
 
@@ -102,8 +102,9 @@ function submitAnswer() {
         //submit the guess in array form and get feedback
         var lastfb = currGame.submitGuess(currGame.toArrayGuess(guess));
         //prepend last feedback
-        $("#game-info").prepend(" ---- " + lastfb[0] + "A" + lastfb[1] + "B <br/>");
-        $("#game-info").prepend("Guess #" + (currGame.n_guesses) + ": " + guess);
+        $("#game-info").append("#" + (currGame.n_guesses) + ":  " + guess);
+        $("#game-info").append(" - " + lastfb[0] + "A" + lastfb[1] + "B <br/>");
+        
         
 
         //win?
@@ -117,7 +118,7 @@ function submitAnswer() {
             total_win += 1;
             
             //TODO: save this game record somewhere
-            $("#game-info").prepend("Congratulations! You win! <br/>");
+            $("#game-info").append("Congratulations! You win! <br/>");
             alert("Congratulations! You win!");
 
             $(".score-container").html(total_score);
@@ -177,21 +178,37 @@ $(document).ready(function() {
         }
     });
 
-    $('.btn').click(function() {
+    $('.btn').click (function() {
+        
         var current_text = $('#guesstext').val();
-        console.log(current_text);
         var button_digit = $(this).attr("value");
 
         if (button_digit == 'r') {
             submitAnswer();
+            $('.btn').removeClass("pressed");
+            $('.btn').removeAttr('disabled');
         }
         else if (button_digit == 'd') {
+            if ( current_text.length == 0 ) {
+                return
+            }
+
+            last_digit = current_text[current_text.length - 1];
             current_text = current_text.substring(0, current_text.length - 1);
-            $('#guesstext').val(current_text);
+            $('#guesstext').val(current_text);   
+
+            $('button[value=' + last_digit + ']').removeClass("pressed");
+            $('button[value=' + last_digit + ']').removeAttr("disabled");
+        
         }
         else {
+            
+            $(this).attr('disabled','disabled');
+            $(this).addClass("pressed");
+
             current_text += button_digit;
             $('#guesstext').val(current_text);
+
         }
 
         

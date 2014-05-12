@@ -116,8 +116,37 @@ input:focus {
 #userinput{
   display: block;
   text-align: center;
-  vertical-align: middle;
-  
+  vertical-align: middle; 
+}
+
+button {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  padding: 0;
+  text-align: center;
+  color: #776e65;
+  background-color: #faf8ef;
+  -webkit-appearance: none;
+  border-radius: 3px;
+}
+
+button:not(.pressed):hover {
+  background-color: #776e65;     
+  color: #faf8ef;
+}
+
+.pressed {
+  background-color: #ccc; /*gray*/
+}
+
+p {
+  margin: 5px 0;
+}
+ 
+#del, #enter {
+  width: 80px;
+  font-size:15px;
 }
 
 
@@ -161,25 +190,5 @@ input:focus {
     box-sizing: border-box;
     line-height: 1.65; }
 
-  button {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    padding: 0;
-    text-align: center;
-    color: #776e65;
-    background-color: #faf8ef;
-    -webkit-appearance: none;
-    border-radius: 3px;
-  }
-
-  p {
-    margin: 5px 0;
-  }
- 
-  #del, #enter {
-    width: 80px;
-    font-size:15px;
-  }
 
 }
