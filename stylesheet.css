@@ -131,7 +131,7 @@ button {
   border-radius: 3px;
 }
 
-button:not(.pressed):hover {
+.btn:not(.pressed):hover {
   background-color: #776e65;     
   color: #faf8ef;
 }

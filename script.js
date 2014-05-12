@@ -178,7 +178,7 @@ $(document).ready(function() {
         }
     });
 
-    $('.btn').click (function() {
+    $('button').click (function() {
         
         var current_text = $('#guesstext').val();
         var button_digit = $(this).attr("value");
@@ -202,7 +202,7 @@ $(document).ready(function() {
         
         }
         else {
-            
+
             $(this).attr('disabled','disabled');
             $(this).addClass("pressed");
 
