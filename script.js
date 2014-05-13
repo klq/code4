@@ -64,7 +64,7 @@ function Game (n) {
 
 function genGame (game) {
     game.newGame();
-    $("#game-info").append("New Game is ready to play! <br/>");
+    $("#game-info").append("Ready to play? <br> Enter your guesses in the box! <br/>");
     // console.log(currGame.answer);
 }
 
@@ -76,15 +76,6 @@ function recordText (w,l) {
 
 }
 
-// function detectEnter(id,e) {
-//     $(id).keypress (function(e) {
-//         var code = e.keyCode ? e.keyCode : e.which;
-//         if (code == 13) {
-//            return true;
-//         }
-//     });
-// }
-
 function submitAnswer() {
     //got text from submit
     //replace any non-Digit characters (commas, white spaces etc) with empty string
@@ -94,7 +85,7 @@ function submitAnswer() {
     if (!currGame.validateGuess(guess)) {
         alert("The passcode has four digits. Try again!");
     }
-    else {
+    else { //clear the game-info text after submitting the first guess
         if (currGame.n_guesses === 0 ) {
             $('#game-info').html('');
         }
@@ -214,11 +205,9 @@ $(document).ready(function() {
         
     });
 
-    //$('#submitbutton').click(submitAnswer);
-
-    // $("#guesstext").blur(function() {
-    //     this.focus();
-    // });
+    $("#guesstext").blur(function() {
+        this.focus();
+    });
 
     
 

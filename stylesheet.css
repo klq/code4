@@ -126,9 +126,10 @@ button {
   padding: 0;
   text-align: center;
   color: #776e65;
-  background-color: #faf8ef;
+  background-color: #bbada0; /*#faf8ef;*/
   -webkit-appearance: none;
   border-radius: 3px;
+ /* border: none;*/
 }
 
 .btn:not(.pressed):hover {
@@ -138,6 +139,7 @@ button {
 
 .pressed {
   background-color: #ccc; /*gray*/
+  color: #eee;
 }
 
 p {
