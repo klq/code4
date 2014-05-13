@@ -161,15 +161,16 @@ var curr_score = 0;
 $(document).ready(function() { 
     genGame(currGame);
 
-    $('#guesstext').keypress (function(e) {
-        var code = e.keyCode ? e.keyCode : e.which;
-        if (code == 13) {
-           submitAnswer();
-           e.preventDefault();
-        }
-    });
+    // $('#guesstext').keypress (function(e) {
+    //     var code = e.keyCode ? e.keyCode : e.which;
+    //     if (code == 13) {
+    //        submitAnswer();
+    //        e.preventDefault();
+    //     }
+    // });
 
-    $('button').click (function() {
+    $('button').bind('touchstart click', function(e) { 
+        e.preventDefault();
         
         var current_text = $('#guesstext').val();
         var button_digit = $(this).attr("value");
@@ -194,12 +195,17 @@ $(document).ready(function() {
         }
         else {
 
+            if ($(this).attr('disabled') == 'disabled'){
+                return
+            }
+
+            // if button not disabled
             $(this).attr('disabled','disabled');
             $(this).addClass("pressed");
-
+           
             current_text += button_digit;
             $('#guesstext').val(current_text);
-
+           
         }
 
         

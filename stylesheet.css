@@ -80,6 +80,7 @@ html, body {
   margin: 0; }
  
 input{
+  color: #776e65;
   width:4.0em;
   display: inline-block;
   font-size:1.2rem;
@@ -101,6 +102,7 @@ input:focus {
   border-bottom: 6px solid #FF9933; /*#3DC1FF*/
   outline: none
 }
+
 
 .game-container, #game-info, #userinput {
   border: 0px solid #FF9933;
